@@ -3,6 +3,7 @@ const {
   registerNewUserService,
   loginUserService,
   updateUserService,
+  getUserByIdService,
 } = require("../services/user.services");
 const {
   registerUserSchema,
@@ -50,5 +51,14 @@ async function updateUser(req, res, next) {
     next();
   }
 }
+async function getUserById(req, res, next) {
+  try {
+    const user = await getUserByIdService(req.user.id);
+    res.status(200).json(user);
+  } catch (err) {
+    logger.error(err);
+    next();
+  }
+}
 
-module.exports = { registerNewUser, loginUser, updateUser };
+module.exports = { registerNewUser, loginUser, updateUser, getUserById };

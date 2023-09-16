@@ -52,7 +52,7 @@ async function loginUserService(data) {
   const token = await jwt.sign(
     { name: user.name, email, id: user._id },
     process.env.SECRET,
-    {expiresIn: process.env.EXPIRY}
+    { expiresIn: process.env.EXPIRY }
   );
 
   return {
@@ -78,8 +78,18 @@ async function updateUserService(data, id) {
   };
 }
 
+async function getUserByIdService(id) { 
+  const user = await User.findById(id);
+  return {
+    error: false,
+    message: "user fetched",
+    data: user,
+  };
+}
+
 module.exports = {
   registerNewUserService,
   loginUserService,
   updateUserService,
+  getUserByIdService,
 };
