@@ -38,7 +38,7 @@ async function loginUserService(data) {
   if (!user) {
     return {
       error: true,
-      message: "user doesn't exists!",
+      message: "user doesn't exist!",
     };
   }
 
@@ -67,7 +67,7 @@ async function updateUserService(data, id) {
   if (!user) {
     return {
       error: true,
-      message: "user doesn't exists!",
+      message: "user doesn't exist!",
     };
   }
   const updateDetails = await User.findByIdAndUpdate(id, data, { new: true });
