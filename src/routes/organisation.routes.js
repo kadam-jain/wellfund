@@ -3,6 +3,6 @@ const organisationController = require("../controllers/organisation.controller")
 const { auth, adminAuth } = require("../middlewares/auth");
 
 router.post("/get", auth, organisationController.getAllOrganisations);
-router.post("/create", adminAuth, organisationController.loginAdmin);
+router.post("/create", adminAuth, organisationController.createCampaign);
 
 module.exports = router;

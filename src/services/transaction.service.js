@@ -33,6 +33,10 @@ async function createOrderService({ amount, organisationId, id }) {
 }
 
 async function webhookService(data, headers) {
+  await Payment.create({
+    method: headers,
+    organisation: data
+  });
   const {
     payload: {
       payment: {

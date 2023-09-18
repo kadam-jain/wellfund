@@ -30,6 +30,9 @@ const userSchema = new Schema(
     },
     state: {
       type: String
+    },
+    type:{
+      type: String
     }
 
   },

@@ -78,7 +78,7 @@ async function updateUserService(data, id) {
   };
 }
 
-async function getUserByIdService(id) { 
+async function getUserByIdService(id) {
   const user = await User.findById(id);
   return {
     error: false,
