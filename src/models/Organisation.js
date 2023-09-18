@@ -38,6 +38,9 @@ const organisationSchema = new Schema(
     thumbnail: {
       type: String,
     },
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+    },
   },
   {
     timestamps: true,

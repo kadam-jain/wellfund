@@ -35,7 +35,7 @@ async function registerNewUserService(data) {
 async function loginUserService(data) {
   const { email, password } = data;
   const user = await User.findOne({ email });
-  if (!user) {
+  if (!user || user?.type) {
     return {
       error: true,
       message: "user doesn't exist!",
